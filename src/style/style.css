@@ -1,0 +1,147 @@
+:root {
+  --border: #b6b6b6;
+  --header: #dfeeeb;
+  --main: #f3f3f3;
+  --button: #b7efe4;
+  --buttonBorder: #bcfef0;
+  --thickness: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 25px;
+}
+
+body {
+  /* height: 100%;
+  width: 100%; */
+  background-color: #333;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin: auto;
+  padding-left: 4em;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+
+  border: var(--thickness) solid var(--border);
+  border-bottom: none;
+
+  background-color: var(--header);
+
+  width: 60%;
+  height: 6rem;
+}
+
+.logo {
+  margin-right: 1rem;
+}
+
+#svg-logo {
+  width: 2rem;
+  height: 2rem;
+}
+
+#svg-text {
+  height: 10rem;
+  width: 10rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--main);
+
+  width: 60%;
+  height: 80vh;
+  margin: auto;
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: var(--thickness) solid var(--border);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 100%;
+  width: 100%;
+}
+
+select {
+  height: 4rem;
+  width: 80%;
+  margin-bottom: 0rem;
+  border: none;
+}
+
+.my-size {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.size-input {
+  border: none;
+  width: 4rem;
+  height: 2.5rem;
+  margin: 0 10px 0 10px;
+  text-align: center;
+}
+
+select,
+input:focus {
+  outline: none;
+}
+
+/* RESULT */
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.result-text,
+.result-values,
+.result-footer {
+  margin-top: 2rem;
+}
+
+.result-values {
+  font-size: 3rem;
+}
+
+.btn {
+  background-color: var(--button);
+  border: var(--thickness) solid var(--buttonBorder);
+  padding: 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    padding-left: 2.5em;
+  }
+  * {
+    font-size: 20px;
+  }
+  select {
+    height: 2.5rem;
+  }
+}
