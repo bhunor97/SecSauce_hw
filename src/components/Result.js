@@ -1,12 +1,6 @@
 import React from "react";
 
 const Result = (props) => {
-  // let sizeMapped = () => {
-  //   props.parentSize.sizes.map((x) => {
-  //     x.name
-  //   })
-  // }
-
   return (
     <>
       <div className="result-container">

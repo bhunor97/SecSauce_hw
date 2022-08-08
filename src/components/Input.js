@@ -124,7 +124,7 @@ const Input = (props) => {
       );
       const size = await response.json();
 
-      console.log(size.sizes.length);
+      // console.log(size.sizes.length);
 
       // CHECKING IF SIZE AVAILABLE
       if (size.sizes.length < 2) {
@@ -141,19 +141,51 @@ const Input = (props) => {
   return (
     <div className="input-container">
       {/*brand dropdown */}
-      <select onChange={getSelectedBrand}>
-        <option selected disabled value="">
-          Select a brand
-        </option>
-        {getBrand()}
-      </select>
+      <div className="brand-div">
+        <select onChange={getSelectedBrand}>
+          <option selected disabled value="">
+            Select a brand
+          </option>
+          {getBrand()}
+        </select>
+        {/* custom arrow */}
+        <svg
+          className="custom-arrow"
+          viewBox="0 0 11 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.53617 8.99272L0.747868 0.791069L10.2449 0.745107L5.53617 8.99272Z"
+            fill="#B4C6C1"
+          />
+        </svg>
+        <span className="select-line"></span>
+      </div>
+
       {/*category dropdown */}
-      <select onChange={getSelectedCategory}>
-        <option selected disabled value="">
-          Select a category
-        </option>
-        {getCategory()}
-      </select>
+      <div className="category-div">
+        <select onChange={getSelectedCategory}>
+          <option selected disabled value="">
+            Select a category
+          </option>
+          {getCategory()}
+        </select>
+        {/* custom arrow */}
+        <svg
+          className="custom-arrow"
+          viewBox="0 0 11 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.53617 8.99272L0.747868 0.791069L10.2449 0.745107L5.53617 8.99272Z"
+            fill="#B4C6C1"
+          />
+        </svg>
+        <span className="select-line"></span>
+      </div>
+
       {/* my size input  */}
       <div className="my-size">
         My size is
