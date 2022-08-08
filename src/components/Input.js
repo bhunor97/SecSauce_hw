@@ -16,8 +16,8 @@ const Input = (props) => {
   // API BRANDS
   useEffect(() => {
     let fetchBrands = async () => {
-      let username = "user3472";
-      let apiKey = "0f6aa487-0f3b-41dc-95be-86c19dd0b98d";
+      let username = "user31410";
+      let apiKey = "0f12172e-9d0e-472e-80ca-1ec1d50c89e2";
       const response = await fetch(
         "https://size-calculator-api.sspinc.io/brands",
         {
@@ -52,12 +52,13 @@ const Input = (props) => {
   let getSelectedBrand = (e) => {
     setSelectedBrand(e.target.value);
   };
+  // console.log(selectedBrand);
 
   // API CATEGORIES
   useEffect(() => {
     let fetchCategories = async () => {
-      let username = "user3472";
-      let apiKey = "0f6aa487-0f3b-41dc-95be-86c19dd0b98d";
+      let username = "user31410";
+      let apiKey = "0f12172e-9d0e-472e-80ca-1ec1d50c89e2";
       const response = await fetch(
         `https://size-calculator-api.sspinc.io/categories?brand_id=${selectedBrand}`,
         {
@@ -93,6 +94,7 @@ const Input = (props) => {
     setSelectedCategory(e.target.value);
   };
   // console.log(selectedCategory);
+  // console.log(currentInputSize);
 
   // GET SIZE INPUT
   let getInputSize = (e) => {
@@ -104,29 +106,36 @@ const Input = (props) => {
 
   // API CALCULATE ON CLICK
   let getSizes = async () => {
-    let username = "user3472";
-    let apiKey = "0f6aa487-0f3b-41dc-95be-86c19dd0b98d";
-    const response = await fetch(
-      `https://size-calculator-api.sspinc.io/sizes?brand_id=${selectedBrand}&category_id=${selectedCategory}&measurement=${currentInputSize}`,
-      {
-        mode: "cors",
-        credentials: "include",
-        method: "GET",
-        headers: {
-          Authorization: "Basic " + btoa(`${username}:${apiKey}`),
-        },
-      }
-    );
-    const size = await response.json();
-    // setCurrentSizes(size);
-    props.setParentSize(size);
+    if (!selectedCategory || !currentInputSize) {
+      alert("Please fill out the form");
+    } else {
+      let username = "user31410";
+      let apiKey = "0f12172e-9d0e-472e-80ca-1ec1d50c89e2";
+      const response = await fetch(
+        `https://size-calculator-api.sspinc.io/sizes?brand_id=${selectedBrand}&category_id=${selectedCategory}&measurement=${currentInputSize}`,
+        {
+          mode: "cors",
+          credentials: "include",
+          method: "GET",
+          headers: {
+            Authorization: "Basic " + btoa(`${username}:${apiKey}`),
+          },
+        }
+      );
+      const size = await response.json();
 
-    // ON CLICK CALCULATED STATE CHANGE
-    if ((selectedBrand, selectedCategory, props.setParentSize)) {
-      props.setCalculated(true);
+      console.log(size.sizes.length);
+
+      // CHECKING IF SIZE AVAILABLE
+      if (size.sizes.length < 2) {
+        alert("Size not available");
+      } else {
+        props.setParentSize(size);
+        // ON CLICK CALCULATED STATE CHANGE
+        props.setCalculated(true);
+      }
     }
   };
-  // console.log(currentSizes.sizes);
 
   // JSX
   return (
