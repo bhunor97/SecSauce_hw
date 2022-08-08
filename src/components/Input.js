@@ -11,7 +11,6 @@ const Input = (props) => {
   let [selectedCategory, setSelectedCategory] = useState("");
   // size
   let [currentInputSize, setCurrentInputSize] = useState("");
-  let [currentSizes, setCurrentSizes] = useState("");
 
   // API BRANDS
   useEffect(() => {
@@ -124,7 +123,7 @@ const Input = (props) => {
       // console.log(size.sizes.length);
 
       // CHECKING IF SIZE AVAILABLE
-      if (size.sizes.length < 2) {
+      if (size.sizes.length < 1) {
         alert("Size not available");
       } else {
         props.setParentSize(size);

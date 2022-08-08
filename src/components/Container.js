@@ -9,6 +9,8 @@ const Container = () => {
   let [calculated, setCalculated] = useState(false);
   let [parentSize, setParentSize] = useState("");
 
+  console.log(parentSize.sizes);
+
   return (
     <>
       <Header />
