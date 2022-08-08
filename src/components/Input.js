@@ -98,9 +98,7 @@ const Input = (props) => {
 
   // GET SIZE INPUT
   let getInputSize = (e) => {
-    if (e.target.value) {
-      setCurrentInputSize(e.target.value);
-    }
+    setCurrentInputSize(e.target.value);
   };
   // console.log(currentInputSize);
 
@@ -123,7 +121,6 @@ const Input = (props) => {
         }
       );
       const size = await response.json();
-
       // console.log(size.sizes.length);
 
       // CHECKING IF SIZE AVAILABLE
@@ -195,6 +192,7 @@ const Input = (props) => {
             onChange={getInputSize}
             className="size-input"
             type="number"
+            min="0"
             name="size-input"
             id="size-input"
           />
